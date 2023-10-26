@@ -1,0 +1,200 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    // background-color: rgb(128, 157, 255);
+    .logo{
+        display: flex;
+        align-items: center;
+        // background-color: aqua;
+        margin: 1rem;
+        cursor: pointer;
+        img{
+            margin-right: .5rem;
+            width: 10rem;
+            height: 7em;
+            // background-color: #000 ;
+            // border-radius: 50%;
+            // object-fit: cover;
+        }
+        .logoTitle{
+            font-size: 1.7rem;
+            font-weight: 700;
+            display: none;
+        }
+    }
+    .navItems{
+        // background-color: aqua;
+        margin: 0 2rem ;
+        .navItemsIcons{
+            display: none;
+        }
+        #nav{
+            display: none;
+        }
+        ul{
+            list-style: none;
+            display: flex;
+            gap: 15%;
+            // background-color: red;
+            li{
+                text-transform: capitalize;
+                color: #7a7979;
+                cursor: pointer;
+                position: relative;
+                &::after{
+                    content: "";
+                    position: absolute;
+                    bottom: -.4rem;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background-color: #000;
+                    transition: all .4s ease-in-out;
+                    opacity: 0;
+                    
+                }
+                &:hover {
+                    color: #000;
+                    &::after {
+                        opacity: 1;
+                    }
+                }
+                
+            }
+        }
+    }
+    .searchBar{
+        // background-color: red;
+        width: 20%;
+        margin-left: 20%;
+        // margin-right: 10%;
+        position: relative;
+        border: 1px solid #878787;
+        border-radius: .5rem;
+        overflow: hidden;
+        input{
+            width: 85%;
+            padding: .5rem;
+            border: none;
+            outline: none;
+            font-size: 1.1rem;
+            &::placeholder{
+                text-transform: capitalize;
+            }
+        }
+        .fa-magnifying-glass{
+            position: absolute;
+            right: 1rem;
+            top: 25%;
+            color: rgb(143, 143, 143);
+            cursor: pointer;
+            // background-color: red;
+        }
+    }
+}
+
+// 750px
+
+@media (max-width: 750px) {
+    
+
+    .navbar{
+        position: relative;
+        .logo{
+            img{
+                display: none;
+                
+            }
+            .logoTitle{
+                display: block;
+            }
+        }
+        .navItems{
+            
+            .navItemsIcons{
+                display: block;
+                font-size: 1.5rem;
+                display: flex;
+                align-items: center;
+                color: #7a7979;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                cursor: pointer;
+                // background-color: red;
+                &:hover{
+                    color: #000;
+                }
+
+                .fa-x{
+                    display: none;
+                    
+                }
+                
+            }
+            #nav{
+                display: none;
+                &:checked {
+                    & ~ ul{
+                        right:1rem ;
+                    }
+                    & ~ label .fa-x{
+                        display: block;
+                    }
+                    & ~ label .fa-bars{
+                        display:none;
+                    }
+                    
+                }
+                
+            }
+            ul{
+                // display: none;
+                position: absolute;
+                top: 100%;
+                right: -100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: #eee;
+                border-radius: .5rem;
+                width: 30%;
+                // height: fit-content;
+                transition: .5s ease-in-out;
+                z-index: 99;
+                li{
+                    width: 70%;
+                    // background-color: aqua;
+                    text-align: center;
+                    padding: 1rem;
+                    &::after{
+                        bottom: .5rem;
+                    }
+                }
+            }
+        }
+        .searchBar{
+            margin-left: -4rem;
+            // background-color: red;
+            width: 50%;
+        }
+    }
+    
+}
+// 450px
+@media (max-width:450px) {
+    .navbar{
+        .logo{
+            .logoTitle{
+                font-size: 1.1rem;
+            }
+        }
+        .searchBar{
+            // background-color: red;
+            width: 45%;
+            input{
+                padding: .2rem;
+            }
+        }
+    }
+}
